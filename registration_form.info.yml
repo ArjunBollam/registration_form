@@ -1,0 +1,6 @@
+name: Registration form
+description: 'This is a Registration form for new users'
+package: Custom
+type: module
+version: 1.0
+core: 8.x

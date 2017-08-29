@@ -1,0 +1,34 @@
+registration_form.multistep_one:
+  path: '/registration_form/multistep-one'
+  defaults:
+    _form: '\Drupal\registration_form\Form\Multistep\MultistepOneForm'
+    _title: 'Registration Form'
+  requirements:
+    _permission: 'access content'
+
+registration_form.multistep_two:
+  path: '/registration_form/multistep-two'
+  defaults:
+    _form: '\Drupal\registration_form\Form\Multistep\MultistepTwoForm'
+    _title: 'Email Authenticated succesfully'
+  requirements:
+    _permission: 'access content'
+
+registration_form.multistep_three:
+  path: '/registration_form/multistep-three'
+  defaults:
+    _form: '\Drupal\registration_form\Form\Multistep\MultistepThreeForm'
+    _title: 'Phone Authentication'
+  requirements:
+    _permission: 'access content'
+
+registration_form.validate:
+  path: '/validate/{token}'
+  defaults:
+    _controller: '\Drupal\registration_form\Controller\ValidateEmail::ValidateToken'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      employee:
+        type: token

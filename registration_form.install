@@ -1,0 +1,102 @@
+<?php
+
+function registration_form_schema() {
+  $schema['registration_form'] = array(
+    'fields' => array(
+      'id'=>array(
+        'type'=>'serial',
+        'not null' => TRUE,
+      ),
+      'first_name'=>array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+      ),
+      'middle_name'=>array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+      ),
+      'last_name'=>array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+      ),
+      'email'=>array(
+        'type' => 'varchar',
+				'length' => 64,
+        'not null' => TRUE,
+      ),
+			'phone'=>array(
+				'type' => 'varchar',
+				'length' => 64,
+				'not null' => TRUE,
+			),
+			'street1'=>array(
+				'type' => 'varchar',
+				'length' => 64,
+				'not null' => TRUE,
+			),
+			'street2'=>array(
+				'type' => 'varchar',
+				'length' => 64,
+				'not null' => TRUE,
+			),
+			'city'=>array(
+				'type' => 'varchar',
+				'length' => 64,
+				'not null' => TRUE,
+			),
+			'state'=>array(
+				'type' => 'varchar',
+				'length' => 64,
+				'not null' => TRUE,
+			),
+			'zip'=>array(
+				'type' => 'varchar',
+				'length' => 64,
+				'not null' => TRUE,
+			),
+			'dob'=>array(
+				'type' => 'datetime',
+				'mysql_type' => 'datetime',
+				'not null' => TRUE,
+			),
+			'random_string'=>array(
+				'type' => 'varchar',
+				'length' => 64,
+				'not null' => TRUE,
+			),
+			'confirm_account'=>array(
+				'type' => 'varchar',
+				'length' => 64,
+				'default' => FALSE,
+				'not null' => TRUE,
+			),
+//			'photo'=>array(
+//				'type' => 'int',
+//				'length' => 40,
+//				'default' => FALSE,
+//				'not null' => TRUE,
+//			),
+    ),
+    'primary key' => array('id'),
+  );
+
+  return $schema;
+
+}
+
+function registration_form_uninstall() {
+	drupal_uninstall_schema('registration_form');
+}
+//
+//function registration_form_update_8004() {
+//	db_query('ALTER TABLE registration_form MODIFY COLUMN confirm_account varchar(40) DEFAULT 0 ');
+//}
+//function registration_form_update_8005() {
+//	db_query('ALTER TABLE registration_form DROP COLUMN confirm_account');
+//}
+//function registration_form_update_8006() {
+//	db_query('ALTER TABLE registration_form ADD COLUMN confirm_account varchar(40) DEFAULT 0 ');
+//}

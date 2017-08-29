@@ -1,0 +1,18 @@
+<?php
+/**
+ * Implements hook_mail().
+ */
+function registration_form_mail($key, &$message, $params ) {
+	$request = \Drupal::request();
+	$url = $request->getUriForPath('/validate/').$params['randomstring'];
+	$content =  sprintf('Hi,	
+		Please click on the below link to succesfully Authenticate.
+		confirm URL : %s', $url);
+
+	switch ($key) {
+		case 'registerMail':
+			$message['subject'] = "New User registration";
+			$message['body'][] = Drupal\Core\Mail\MailFormatHelper::htmlToText($content);
+			break;
+	}
+}
